@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dtgasto: 2018-01-09
+  tipo_gasto: one
+  valor: 
+
+two:
+  dtgasto: 2018-01-09
+  tipo_gasto: two
+  valor: 
