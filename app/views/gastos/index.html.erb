@@ -2,10 +2,13 @@
 
 <h1>Gastos</h1>
 
+<%= link_to 'New Gasto', new_gasto_path %>
+<br>
+<br>
 <table>
   <thead>
     <tr>
-      <th>Dtgasto</th>
+      <th>Dt gasto</th>
       <th>Tipo gasto</th>
       <th>Valor</th>
       <th colspan="3"></th>
@@ -16,7 +19,7 @@
     <% @gastos.each do |gasto| %>
       <tr>
         <td><%= gasto.dtgasto %></td>
-        <td><%= gasto.tipo_gasto %></td>
+        <td><%= gasto.tipo_gasto.descricao %></td>
         <td><%= gasto.valor %></td>
         <td><%= link_to 'Show', gasto %></td>
         <td><%= link_to 'Edit', edit_gasto_path(gasto) %></td>
@@ -27,5 +30,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Gasto', new_gasto_path %>

@@ -1,0 +1,10 @@
+<h1>Gastos</h1>
+
+<br><br>
+<%= select("post", "ano", options_for_select([["2018"], ["2019"]]))%><br>
+<%= link_to 'Consultar', consulta_por_mes_path %>
+<br>
+<% @gastos.each do |gasto| %>
+  <%= gasto.valor %>
+  <%= gasto.dtgasto %>
+<% end %>

@@ -6,10 +6,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    teste
+
+
   </head>
 
   <body>
+    <ul>
+      <li><%= link_to 'Principal', root_path %></li>
+      <li><%= link_to 'Gastos', gastos_path %></li>
+      <li><%= link_to 'Tipo Gasto', tipo_gastos_path %></li>
+      <li><%= link_to 'Consulta Por Mes', consulta_por_mes_path %></li>
+    </ul>
     <%= yield %>
   </body>
 </html>

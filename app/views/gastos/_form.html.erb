@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :dtgasto %>
-    <%= form.date_select :dtgasto, id: :gasto_dtgasto %>
+    <%= form.text_field :dtgasto, id: :gasto_dtgasto %>
   </div>
 
   <div class="field">
     <%= form.label :tipo_gasto_id %>
-    <%= form.text_field :tipo_gasto_id, id: :gasto_tipo_gasto_id %>
+    <%= form.select :tipo_gasto_id, options_from_collection_for_select(TipoGasto.all, :id, :descricao) %>
   </div>
 
   <div class="field">

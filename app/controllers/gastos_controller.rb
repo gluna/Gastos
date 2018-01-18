@@ -61,6 +61,12 @@ class GastosController < ApplicationController
     end
   end
 
+  def consulta_por_mes
+    @gastos = Gasto.all
+    @teste = '12345'
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gasto
@@ -71,4 +77,5 @@ class GastosController < ApplicationController
     def gasto_params
       params.require(:gasto).permit(:dtgasto, :tipo_gasto_id, :valor)
     end
+
 end
