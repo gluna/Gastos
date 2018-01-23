@@ -1,12 +1,16 @@
-<br>
-<%= select(:ano, "ano2", options_for_select([["2018"], ["2019"]]))%>
-<%= link_to 'Consultar', consulta_por_mes_path %>
 
-<%= @teste %>
-<!--
-<% @gastos.each do |gasto| %>
-  <%= gasto.dtgasto %>
-  <%= gasto.tipo_gasto.descricao %>
-  <%= gasto.valor %>
+<%= form_tag(controller: "gastos", action: "consulta_por_mes", method: "get") do %>
+<br>
+<%= select_tag('ano', options_for_select([["2018"], ["2019"]]))%>
+<%= submit_tag("Consultar") %>
+<%= @teste %><br>
+
+<br>
+<% if @gastos != nil %>
+  <% @gastos.each do |gasto| %>
+    
+    <%= gasto.tipo_gasto.descricao %>
+    <%= gasto.valor %><br>
+  <% end %>
 <% end %>
--->
+<% end %>

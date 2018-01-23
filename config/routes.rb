@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :gastos
   resources :tipo_gastos
 
+  post 'consulta_por_mes', to: 'gastos#consulta_por_mes'
   get 'consulta_por_mes', to: 'gastos#consulta_por_mes'
 
   root 'principal#principal'
