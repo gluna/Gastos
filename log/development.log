@@ -1,0 +1,738 @@
+Started GET "/" for 127.0.0.1 at 2018-01-23 11:23:32 -0200
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.4) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.4) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (134.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (161.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTipoGastos (20180109152526)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "tipo_gastos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descricao" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180109152526"]]
+  [1m[35m (145.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGastos (20180109153003)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "gastos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dtgasto" date, "tipo_gasto_id" integer, "valor" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_2fda957d65"
+FOREIGN KEY ("tipo_gasto_id")
+  REFERENCES "tipo_gastos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_gastos_on_tipo_gasto_id" ON "gastos" ("tipo_gasto_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180109153003"]]
+  [1m[35m (136.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-23 13:23:47.750743"], ["updated_at", "2018-01-23 13:23:47.750743"]]
+  [1m[35m (113.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_gastos_on_tipo_gasto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_gastos_on_tipo_gasto_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-01-23 11:23:57 -0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 498ms (Views: 491.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 11:24:03 -0200
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 11:24:06 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 11:24:08 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IB/7rt9DlC2xRmcJRd4O3/9FiQoc1QLhYtVtc8c3RIGXh/f3cLIxMTWnt5DgclYXuG4kfxjA2hzjpRjjNgkp9Q==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos
+                                   where strftime("%m", gastos.dtgasto) = "02"
+                                   and strftime("%Y", gastos.dtgasto) = "2018"
+                                   group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 37ms (Views: 19.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 11:24:11 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1r90j5/oSaSa7D+jrBiwQnVQ6l/91sePfvkkcVo64QbojSEJ7L+0FVDuL/QYYbNDM5/CGge7/LFGFoyMjkuRpA==", "ano"=>"2019", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos
+                                   where strftime("%m", gastos.dtgasto) = "02"
+                                   and strftime("%Y", gastos.dtgasto) = "2019"
+                                   group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 11:24:13 -0200
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-23 11:24:14 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  Rendered gastos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gastos/new" for 127.0.0.1 at 2018-01-23 11:24:17 -0200
+Processing by GastosController#new as HTML
+  Rendering gastos/new.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.6ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  Rendered gastos/_form.html.erb (60.9ms)
+  Rendered gastos/new.html.erb within layouts/application (62.6ms)
+Completed 200 OK in 110ms (Views: 94.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/tipo_gastos" for 127.0.0.1 at 2018-01-23 11:24:20 -0200
+Processing by TipoGastosController#index as HTML
+  Rendering tipo_gastos/index.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  Rendered tipo_gastos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tipo_gastos/new" for 127.0.0.1 at 2018-01-23 11:24:21 -0200
+Processing by TipoGastosController#new as HTML
+  Rendering tipo_gastos/new.html.erb within layouts/application
+  Rendered tipo_gastos/_form.html.erb (3.3ms)
+  Rendered tipo_gastos/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 31ms (Views: 23.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/tipo_gastos" for 127.0.0.1 at 2018-01-23 11:24:28 -0200
+Processing by TipoGastosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lQKq/iOzz56679pA5SI1uLfyRwqjSESygLE1MI1o1jrFtLekWJvoUQNagsfr0K21v/hb6S1+ji3O0ciXL+wOiA==", "tipo_gasto"=>{"descricao"=>"Gasolina"}, "commit"=>"Create Tipo gasto"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "tipo_gastos" ("descricao", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["descricao", "Gasolina"], ["created_at", "2018-01-23 13:24:28.800677"], ["updated_at", "2018-01-23 13:24:28.800677"]]
+  [1m[35m (253.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/tipo_gastos/1
+Completed 302 Found in 259ms (ActiveRecord: 254.0ms)
+
+
+Started GET "/tipo_gastos/1" for 127.0.0.1 at 2018-01-23 11:24:29 -0200
+Processing by TipoGastosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTipoGasto Load (0.3ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tipo_gastos/show.html.erb within layouts/application
+  Rendered tipo_gastos/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 49ms (Views: 18.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-23 11:27:23 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  Rendered gastos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gastos/new" for 127.0.0.1 at 2018-01-23 11:27:24 -0200
+Processing by GastosController#new as HTML
+  Rendering gastos/new.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  Rendered gastos/_form.html.erb (4.5ms)
+  Rendered gastos/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/gastos" for 127.0.0.1 at 2018-01-23 11:27:38 -0200
+Processing by GastosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ewWu2jlKd1KgRY2monwpixvEc0wArWgn1mgzuxriTlfgwFbA73o6LFdqNzXU4S68SqmsH4K7XAkDcuQ5fqpYuw==", "gasto"=>{"dtgasto"=>"01/01/2018", "tipo_gasto_id"=>"1", "valor"=>"10"}, "commit"=>"Create Gasto"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "gastos" ("dtgasto", "tipo_gasto_id", "valor", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["dtgasto", "2018-01-01"], ["tipo_gasto_id", 1], ["valor", 10.0], ["created_at", "2018-01-23 13:27:39.044941"], ["updated_at", "2018-01-23 13:27:39.044941"]]
+  [1m[35m (118.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gastos/1
+Completed 302 Found in 305ms (ActiveRecord: 120.3ms)
+
+
+Started GET "/gastos/1" for 127.0.0.1 at 2018-01-23 11:27:39 -0200
+Processing by GastosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mSELECT  "gastos".* FROM "gastos" WHERE "gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gastos/show.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-23 11:27:41 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gastos/new" for 127.0.0.1 at 2018-01-23 11:27:43 -0200
+Processing by GastosController#new as HTML
+  Rendering gastos/new.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  Rendered gastos/_form.html.erb (4.7ms)
+  Rendered gastos/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/gastos" for 127.0.0.1 at 2018-01-23 11:34:17 -0200
+Processing by GastosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QldNOhAlTURSkrwtO2D3GYKyqsmpnkKXoYYpb2WNnvXZkrUgxhUAOqW9Br5N/fAu0991miuIdrl0nP7tAcWIGQ==", "gasto"=>{"dtgasto"=>"01/02/2018", "tipo_gasto_id"=>"1", "valor"=>"20"}, "commit"=>"Create Gasto"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (40.2ms)[0m  [1m[32mINSERT INTO "gastos" ("dtgasto", "tipo_gasto_id", "valor", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["dtgasto", "2018-02-01"], ["tipo_gasto_id", 1], ["valor", 20.0], ["created_at", "2018-01-23 13:34:17.787119"], ["updated_at", "2018-01-23 13:34:17.787119"]]
+  [1m[35m (256.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gastos/2
+Completed 302 Found in 303ms (ActiveRecord: 297.3ms)
+
+
+Started GET "/gastos/2" for 127.0.0.1 at 2018-01-23 11:34:18 -0200
+Processing by GastosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mSELECT  "gastos".* FROM "gastos" WHERE "gastos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gastos/show.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-23 11:34:19 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gastos/new" for 127.0.0.1 at 2018-01-23 11:42:31 -0200
+Processing by GastosController#new as HTML
+  Rendering gastos/new.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  Rendered gastos/_form.html.erb (4.8ms)
+  Rendered gastos/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/gastos" for 127.0.0.1 at 2018-01-23 11:42:44 -0200
+Processing by GastosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bHAaWTWZs1krjF5MZEihYUhNhFzTHEbwYfKiF+o4ucT3teJD46n+J9yj5N8S1aZWGSBbD1EKct606HWVjnCvKA==", "gasto"=>{"dtgasto"=>"02/01/2018", "tipo_gasto_id"=>"1", "valor"=>"30"}, "commit"=>"Create Gasto"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "gastos" ("dtgasto", "tipo_gasto_id", "valor", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["dtgasto", "2018-01-02"], ["tipo_gasto_id", 1], ["valor", 30.0], ["created_at", "2018-01-23 13:42:44.874825"], ["updated_at", "2018-01-23 13:42:44.874825"]]
+  [1m[35m (265.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gastos/3
+Completed 302 Found in 272ms (ActiveRecord: 266.9ms)
+
+
+Started GET "/gastos/3" for 127.0.0.1 at 2018-01-23 11:42:45 -0200
+Processing by GastosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mSELECT  "gastos".* FROM "gastos" WHERE "gastos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gastos/show.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-23 11:42:46 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 11:42:52 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 11:42:54 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JxswTn8JmoupDH4/P6lFvUFTiG3hsrjvY2UZDMvnjk2QgzwX0Pg/ly3trqaaBR11BnglGOWnYBLiFWycOtnjOQ==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos
+                                   where strftime("%m", gastos.dtgasto) = "02"
+                                   and strftime("%Y", gastos.dtgasto) = "2018"
+                                   group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-23 11:42:59 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 11:43:15 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 11:43:18 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kv6GylFYbtB96Y2pSvDvsSwf/D/n0FHj5QHAmIdd50IlZoqT/qnLzPkIXTDvXLd5azRRSuPFiR5kcbUIdmOKNg==", "ano"=>"2019", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos
+                                   where strftime("%m", gastos.dtgasto) = "02"
+                                   and strftime("%Y", gastos.dtgasto) = "2019"
+                                   group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 11:43:20 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lMTntVCw43r0vvfjX487pnotqC8YT/NBrec/3+1PaFOq9rIzI+ceyz6857Tr9jinPOKAauIiyH+VCJciOT4Y8Q==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos
+                                   where strftime("%m", gastos.dtgasto) = "02"
+                                   and strftime("%Y", gastos.dtgasto) = "2018"
+                                   group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 11:50:21 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"method"=>"get"}
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 21ms (Views: 19.6ms)
+
+
+Started GET "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 11:59:47 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"method"=>"get"}
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 22ms (Views: 20.4ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 11:59:49 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8gwO/pS5Jia2eRBS6011LYLuRxajG0y0+yqdK/V18mjMPlt45+7bl3x7AAVfNHYsxCFvU1l2d4rDxTXWIQSCyg==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    19:   </tr>
+    20:   <tr>
+    21:     <% if @gastos01 != nil %>
+    22:       <% @gastos.each do |gasto| %>
+    23:         <td><%= gasto.tipo_gasto.descricao %></td>
+    24:         <td><%= gasto.valor %></td>
+    25:       <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:22:in `block in _app_views_gastos_consulta_por_mes_html_erb___3700920590398981265_69939962418140'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb___3700920590398981265_69939962418140'
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 12:00:09 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8gwO/pS5Jia2eRBS6011LYLuRxajG0y0+yqdK/V18mjMPlt45+7bl3x7AAVfNHYsxCFvU1l2d4rDxTXWIQSCyg==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb___3700920590398981265_27947020'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb___3700920590398981265_27947020'
+Started GET "/" for 127.0.0.1 at 2018-01-23 12:00:14 -0200
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 12:00:15 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 12:00:16 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NRgJFyahedo1srMFg5I2HK/Nb2dZNXjI5zGLLO4QdsSCgAVOiVDcxrFTY5wmPm7U6ObCEl0goDVmQf68Hy4bsA==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb___3700920590398981265_27531400'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb___3700920590398981265_27531400'
+Started GET "/" for 127.0.0.1 at 2018-01-23 12:03:32 -0200
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 12:03:34 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 22ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 12:03:37 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MqyxaCeorLd+2vqpAeIbhEan4JSxKOPDLG+OmRcSKbyFNL0xiFkJq/o7KjCkTkNMAYxN4bU9Oz6tH/sJ5ixEyA==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb___3700920590398981265_11834160'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb___3700920590398981265_11834160'
+Started GET "/" for 127.0.0.1 at 2018-01-23 12:03:50 -0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 119ms (Views: 112.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 12:03:55 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 12:03:57 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SBOikI2KynOrRfRNlSc3jMvMeCJ+uJH138eZfrGHyYD/i67JIntvby+kJNQwi29EjOfVV3qtSQhet+zuQLmk9A==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (21.7ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb__1637512899865954755_70347135921260'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb__1637512899865954755_70347135921260'
+Started GET "/" for 127.0.0.1 at 2018-01-23 12:04:32 -0200
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 12:04:33 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 12:04:34 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3nzVEgbivENSuvk3R30VSpg09iQ8byy8RXQ4u1wn6+Vp5NlLqRMZX9ZbKa7i0U2C3x9bUTh69EHEBE0rrRmGkQ==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb__1637512899865954755_70347136332420'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb__1637512899865954755_70347136332420'
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 12:04:40 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3nzVEgbivENSuvk3R30VSpg09iQ8byy8RXQ4u1wn6+Vp5NlLqRMZX9ZbKa7i0U2C3x9bUTh69EHEBE0rrRmGkQ==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.4ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb__1637512899865954755_70347136495500'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb__1637512899865954755_70347136495500'
+Started GET "/" for 127.0.0.1 at 2018-01-23 14:52:52 -0200
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 56ms (Views: 54.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 14:52:53 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 14:52:55 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hTHHFva+pXS64iviMT7q5fygMzfYgIvGm1GYpCWzyGIyqctPWU8AaD4D+3uUkrItu4ueQtyVUzsaIe001I2lFg==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb__1637512899865954755_70347182746080'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb__1637512899865954755_70347182746080'
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 14:54:14 -0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hTHHFva+pXS64iviMT7q5fygMzfYgIvGm1GYpCWzyGIyqctPWU8AaD4D+3uUkrItu4ueQtyVUzsaIe001I2lFg==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (14.9ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb___1996818676041307415_69878553125600'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb___1996818676041307415_69878553125600'
+Started GET "/" for 127.0.0.1 at 2018-01-23 14:54:16 -0200
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 181ms (Views: 179.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 14:54:17 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 14:54:20 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QOht3nSH6d2S6Jmnxy0ZiaidgJ4/XGD4eUQn/hGxVW73cGGH23ZMwRYJST5igUFB77Yt6ztJuAX4NFJu4I84Gg==", "ano"=>"2019", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2019" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2019" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb___1996818676041307415_69878480508460'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb___1996818676041307415_69878480508460'
+Started GET "/" for 127.0.0.1 at 2018-01-23 14:54:53 -0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 116ms (Views: 110.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-23 14:54:55 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-23 14:54:56 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ufL2hljr9LcNdK1yRoqLaGp+ntodfRu0s3vQsk7Vu4MOavrf9xpRq4mVfevjJtOgLVUzrxlow0kyC6Uiv+vW9w==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.3ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (22.3ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27:   </tr>
+    28: </table>
+    29: <% if @gastos01 != nil %>
+    30:   <% @gastos.each do |gasto| %>
+    31:     <%= gasto.tipo_gasto.descricao %>
+    32:     <%= gasto.valor %><br>
+    33:   <% end %>
+  
+app/views/gastos/consulta_por_mes.html.erb:30:in `block in _app_views_gastos_consulta_por_mes_html_erb___2409824261721062548_70322171442200'
+app/views/gastos/consulta_por_mes.html.erb:2:in `_app_views_gastos_consulta_por_mes_html_erb___2409824261721062548_70322171442200'

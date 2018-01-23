@@ -6,9 +6,28 @@
 <%= @teste %><br>
 
 <br>
-<% if @gastos != nil %>
+<table style="width:100%">
+  <tr>
+    <th></th>
+    <th>Janeiro</th>
+    <th>Fevereiro</th>
+    <th>Março</th>
+    <th>Abril</th>
+    <th>Maio</th>
+    <th>Junho</th>
+    <th>Julho</th>
+  </tr>
+  <tr>
+    <% if @gastos01 != nil %>
+      <% @gastos01.each do |gasto| %>
+        <td><%= gasto.tipo_gasto.descricao %></td>
+        <td><%= gasto.valor %></td>
+      <% end %>
+    <% end %>
+  </tr>
+</table>
+<% if @gastos01 != nil %>
   <% @gastos.each do |gasto| %>
-    
     <%= gasto.tipo_gasto.descricao %>
     <%= gasto.valor %><br>
   <% end %>
