@@ -2,34 +2,51 @@
 <%= form_tag(controller: "gastos", action: "consulta_por_mes", method: "get") do %>
 <br>
 <%= select_tag('ano', options_for_select([["2018"], ["2019"]]))%>
+<%= select_tag('mes', options_for_select([["Janeiro","01"], ["Fevereiro","02"]]))%>
 <%= submit_tag("Consultar") %>
-<%= @teste %><br>
+<br>
 
 <br>
-<table style="width:100%">
-  <tr>
-    <th></th>
-    <th>Janeiro</th>
-    <th>Fevereiro</th>
-    <th>Março</th>
-    <th>Abril</th>
-    <th>Maio</th>
-    <th>Junho</th>
-    <th>Julho</th>
-  </tr>
-  <tr>
+  <table>
+    <tr>
+      <th>Tipo Gasto</th>
+      <th>Valor</th>
+    </tr>
     <% if @gastos01 != nil %>
+      <% @total = 0 %>
       <% @gastos01.each do |gasto| %>
+      <tr>
         <td><%= gasto.tipo_gasto.descricao %></td>
         <td><%= gasto.valor %></td>
+      </tr>
+          <% @total = @total + gasto.valor %>
       <% end %>
     <% end %>
-  </tr>
-</table>
-<% if @gastos01 != nil %>
-  <% @gastos.each do |gasto| %>
-    <%= gasto.tipo_gasto.descricao %>
-    <%= gasto.valor %><br>
-  <% end %>
-<% end %>
+    <br>
+    <tr>
+      <td><%="Total "%></td><td><%= @total%></td>
+    </tr>
+  </table>
+  <br><br>
+  <table>
+    <tr>
+      <th></th>
+      <th>Janeiro</th>
+      <th>Fevereiro</th>
+      <th>Março</th>
+      <th>Abril</th>
+      <th>Maio</th>
+      <th>Junho</th>
+      <th>Julho</th>
+      <th>Agosto</th>
+      <th>Setembro</th>
+      <th>Outubro</th>
+      <th>Novembro</th>
+      <th>Dezembro</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      
+    </tr>
+  </table>
 <% end %>
