@@ -1,0 +1,39 @@
+
+<%= form_tag(controller: "gastos", action: "consulta_por_ano", method: "get") do %>
+<br>
+<%= select_tag('ano', options_for_select([["2018"], ["2019"]]))%>
+<%= submit_tag("Consultar") %>
+<br>
+
+<br>
+<br>
+  <table>
+    <tr>
+      <th></th>
+      <th>Janeiro</th>
+      <th>Fevereiro</th>
+      <th>Março</th>
+      <th>Abril</th>
+      <th>Maio</th>
+      <th>Junho</th>
+      <th>Julho</th>
+      <th>Agosto</th>
+      <th>Setembro</th>
+      <th>Outubro</th>
+      <th>Novembro</th>
+      <th>Dezembro</th>
+      <th>Total</th>
+    </tr>
+    <% if @tipogasto != nil%>
+      <% @tipogasto.each do |tipo| %>
+        <tr>
+          <td><%= tipo.descricao %></td>
+          <% @gastos01 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
+          <% @gastos01.each do |g| %>
+            <td><%= g.valor %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% end %>

@@ -62,12 +62,16 @@ class GastosController < ApplicationController
   end
 
   def consulta_por_mes
-    @gastos = nil
     if params[:ano] != nil
       @gastos01 = Gasto.find_by_sql('select gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "'+params[:mes]+'" and strftime("%Y", gastos.dtgasto) = "'+params[:ano]+'" group by gastos.tipo_gasto_id')
     end
+  end
 
-    @tipogasto = TipoGasto.all
+  def consulta_por_ano
+    if params[:ano] != nil
+      @tipogasto = TipoGasto.all
+      @ano = params[:ano]
+    end
   end
 
 
