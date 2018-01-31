@@ -5725,3 +5725,523 @@ Processing by GastosController#consulta_por_ano as HTML
 Completed 200 OK in 40ms (Views: 33.6ms | ActiveRecord: 4.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-01-31 13:28:17 -0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrincipalController#principal as HTML
+  Rendering principal/principal.html.erb within layouts/application
+  Rendered principal/principal.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 278ms (Views: 269.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/consulta_por_mes" for 127.0.0.1 at 2018-01-31 13:28:21 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 31ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_mes?method=get" for 127.0.0.1 at 2018-01-31 13:28:23 -0200
+Processing by GastosController#consulta_por_mes as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y9KYl10AwLwLyy03qvd9/HLcfo8Zq5zOT2xWIb9uBynI2vIMetFyWNWMnKsgZgKxKSMNSEDQACbn2dcnS762Rg==", "ano"=>"2018", "mes"=>"01", "commit"=>"Consultar", "method"=>"get"}
+  [1m[36mGasto Load (0.4ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" group by gastos.tipo_gasto_id[0m
+  Rendering gastos/consulta_por_mes.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered gastos/consulta_por_mes.html.erb within layouts/application (50.6ms)
+Completed 200 OK in 131ms (Views: 63.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/consulta_por_ano" for 127.0.0.1 at 2018-01-31 13:28:27 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 39ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_ano?method=get" for 127.0.0.1 at 2018-01-31 13:28:28 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8czQfYFCEqcprKfMskep8XwmCSLimT38kbh13TWksg1Dq5eZ62ZEvu9t3GKO04v5vmER+BV+8I/LDOM2d4TlZg==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.3ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 30ms (Views: 25.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/consulta_por_ano?method=get" for 127.0.0.1 at 2018-01-31 13:32:20 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Parameters: {"method"=>"get"}
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_ano?method=get" for 127.0.0.1 at 2018-01-31 13:32:22 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h+3fE6fkgj6mJXJQ5okvO7MtXaJULLTwpO+j7nNcwShNhkbW072nPcWwMGoyWNy+4D8CRE4BouVj9B4DqBs2cA==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.6ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.6ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 42ms (Views: 36.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/consulta_por_ano?method=get" for 127.0.0.1 at 2018-01-31 13:36:30 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Parameters: {"method"=>"get"}
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_ano?method=get" for 127.0.0.1 at 2018-01-31 13:36:32 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7RsuHrI08uFnzALx55c9rT7NTOhYHTvN07BebftZGJQncLfbxm3X4gRZQMszRs4obd8TDkIwLdgUq+OAIB7vzA==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.8ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 45ms (Views: 37.5ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-31 13:37:20 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered gastos/index.html.erb within layouts/application (46.2ms)
+Completed 200 OK in 64ms (Views: 60.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/gastos/new" for 127.0.0.1 at 2018-01-31 13:37:22 -0200
+Processing by GastosController#new as HTML
+  Rendering gastos/new.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.3ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  Rendered gastos/_form.html.erb (64.0ms)
+  Rendered gastos/new.html.erb within layouts/application (65.4ms)
+Completed 200 OK in 84ms (Views: 82.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/gastos" for 127.0.0.1 at 2018-01-31 13:37:35 -0200
+Processing by GastosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tlICFg5onJLkySeTYRGtDwOHr3wESEeeTFrGz0MPveMpCvCFNzlIjk4ElQf0Z92rR7jXzkTY1/uoZD954r8R7w==", "gasto"=>{"dtgasto"=>"01/02/2018", "tipo_gasto_id"=>"1", "valor"=>"10"}, "commit"=>"Create Gasto"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "gastos" ("dtgasto", "tipo_gasto_id", "valor", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["dtgasto", "2018-02-01"], ["tipo_gasto_id", 1], ["valor", 10.0], ["created_at", "2018-01-31 15:37:35.067184"], ["updated_at", "2018-01-31 15:37:35.067184"]]
+  [1m[35m (217.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gastos/28
+Completed 302 Found in 226ms (ActiveRecord: 218.7ms)
+
+
+Started GET "/gastos/28" for 127.0.0.1 at 2018-01-31 13:37:35 -0200
+Processing by GastosController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mSELECT  "gastos".* FROM "gastos" WHERE "gastos"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  Rendering gastos/show.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/consulta_por_ano" for 127.0.0.1 at 2018-01-31 13:37:36 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_ano?method=get" for 127.0.0.1 at 2018-01-31 13:37:37 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pzYVYRbtU0uy5Rg+214ABVVr+Env8a8agtNjcvUzihcVUVKFfMkFUnQkY5DnyiINlyzgkxgWYmnYZ/WZtxPdfA==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.3ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 34ms (Views: 27.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-31 13:37:48 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered gastos/index.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 56ms (Views: 52.3ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/gastos/28" for 127.0.0.1 at 2018-01-31 13:37:55 -0200
+Processing by GastosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PAZqQQU5bnrbNEbTPorqyxafva/Hz6rOT9aBfB3V7gD2bfOEcWBLebihBOnqWxlORY3iSd3ivNuIzTyRxpIZWA==", "id"=>"28"}
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mSELECT  "gastos".* FROM "gastos" WHERE "gastos"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "gastos" WHERE "gastos"."id" = ?[0m  [["id", 28]]
+  [1m[35m (224.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gastos
+Completed 302 Found in 230ms (ActiveRecord: 225.6ms)
+
+
+Started GET "/gastos" for 127.0.0.1 at 2018-01-31 13:37:55 -0200
+Processing by GastosController#index as HTML
+  Rendering gastos/index.html.erb within layouts/application
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mSELECT "gastos".* FROM "gastos"[0m
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.2ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE TipoGasto Load (0.0ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTipoGasto Load (0.1ms)[0m  [1m[34mSELECT  "tipo_gastos".* FROM "tipo_gastos" WHERE "tipo_gastos"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered gastos/index.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/consulta_por_ano" for 127.0.0.1 at 2018-01-31 13:39:53 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/consulta_por_ano?method=get" for 127.0.0.1 at 2018-01-31 13:39:54 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"whvJ2bIJhpfcbAjJMjO3rKaZke7WY4pOG9MXD+MN48ZwfI492C3Qjhqtc2cOp5WkZN6JNCGERz1BZ4HkoS20rQ==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.5ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 36ms (Views: 28.8ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/consulta_por_ano?method=get" for 127.0.0.1 at 2018-01-31 13:51:01 -0200
+Processing by GastosController#consulta_por_ano as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B2BR6wnrnqFP9jZnBON+wn5IgGrU3SAEkitu9jt70RLNC8gufbK7oixjdF3QMo1HLVrfjM7wNhFVMNMb4DwmSg==", "ano"=>"2018", "commit"=>"Consultar", "method"=>"get"}
+  Rendering gastos/consulta_por_ano.html.erb within layouts/application
+  [1m[36mTipoGasto Load (0.3ms)[0m  [1m[34mSELECT "tipo_gastos".* FROM "tipo_gastos"[0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.3ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 1 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 2 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 3 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.4ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 4 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 5 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 6 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 7 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 8 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 9 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 10 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 11 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 12 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.2ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  [1m[36mGasto Load (0.1ms)[0m  [1m[34mselect gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "2018" and gastos.tipo_gasto_id = 13 group by gastos.tipo_gasto_id [0m
+  Rendered gastos/consulta_por_ano.html.erb within layouts/application (71.9ms)
+Completed 200 OK in 95ms (Views: 67.6ms | ActiveRecord: 25.8ms)
+
+
