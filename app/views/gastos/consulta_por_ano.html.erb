@@ -25,79 +25,132 @@
       <th>Total</th>
     </tr>
     <% if @tipogasto != nil%>
-      <% @totalmes = 0 %>
+      <% @totalmes01 = 0 %><% @totalmes02 = 0 %><% @totalmes03 = 0 %><% @totalmes04 = 0 %><% @totalmes05 = 0 %><% @totalmes06 = 0 %><% @totalmes07 = 0 %><% @totalmes08 = 0 %><% @totalmes09 = 0 %><% @totalmes10 = 0 %><% @totalmes11 = 0 %><% @totalmes12 = 0 %>
       <% @tipogasto.each do |tipo| %>
         <tr>
           <td><%= tipo.descricao %></td>
           <% @gastos01 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "01" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos01.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos01.count > 0 %>
+            <% @gastos01.each do |g| %>
+              <% @totalmes01 = @totalmes01+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos02 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "02" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos02.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos02.count > 0 %>
+            <% @gastos02.each do |g| %>
+              <% @totalmes02 = @totalmes02+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos03 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "03" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos03.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos03.count > 0 %>
+            <% @gastos03.each do |g| %>
+              <% @totalmes03 = @totalmes03+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos04 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "04" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos04.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos04.count > 0 %>
+            <% @gastos04.each do |g| %>
+              <% @totalmes04 = @totalmes04+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos05 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "05" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos05.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos05.count > 0 %>
+            <% @gastos05.each do |g| %>
+              <% @totalmes05 = @totalmes05+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos06 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "06" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos06.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos06.count > 0 %>
+            <% @gastos06.each do |g| %>
+              <% @totalmes06 = @totalmes06+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos07 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "07" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos07.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos07.count > 0 %>
+            <% @gastos07.each do |g| %>
+              <% @totalmes07 = @totalmes07+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos08 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "08" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos08.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos08.count > 0 %>
+            <% @gastos08.each do |g| %>
+              <% @totalmes08 = @totalmes08+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos09 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "09" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos09.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos09.count > 0 %>
+            <% @gastos09.each do |g| %>
+              <% @totalmes09 = @totalmes09+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos10 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "10" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos10.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos10.count > 0 %>
+            <% @gastos10.each do |g| %>
+              <% @totalmes10 = @totalmes10+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos11 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "11" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos11.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
-            <td><%= g.valor %></td>
+          <% if @gastos11.count > 0 %>
+            <% @gastos11.each do |g| %>
+              <% @totalmes11 = @totalmes11+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
           <% end %>
 
           <% @gastos12 = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = "12" and strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
-          <% @gastos12.each do |g| %>
-            <% @totalmes = @totalmes+g.valor %>
+          <% if @gastos12.count > 0 %>
+            <% @gastos12.each do |g| %>
+              <% @totalmes12 = @totalmes12+g.valor %>
+              <td><%= g.valor %></td>
+            <% end %>
+          <% else %>
+            <td>---</td>
+          <% end %>
+
+          <% @gastosano = Gasto.find_by_sql(['select gastos.tipo_gasto_id, sum(gastos.valor) as valor from gastos where strftime("%Y", gastos.dtgasto) = "'+@ano+'" and gastos.tipo_gasto_id = ? group by gastos.tipo_gasto_id ', tipo.id] ) %>
+          <% @gastosano.each do |g| %>
             <td><%= g.valor %></td>
           <% end %>
 
@@ -105,7 +158,18 @@
       <% end %>
       <tr>
         <td>Total</td>
-        <td><%= @totalmes %></td>
+        <td><%= @totalmes01 %></td>
+        <td><%= @totalmes02 %></td>
+        <td><%= @totalmes03 %></td>
+        <td><%= @totalmes04 %></td>
+        <td><%= @totalmes05 %></td>
+        <td><%= @totalmes06 %></td>
+        <td><%= @totalmes07 %></td>
+        <td><%= @totalmes08 %></td>
+        <td><%= @totalmes09 %></td>
+        <td><%= @totalmes10 %></td>
+        <td><%= @totalmes11 %></td>
+        <td><%= @totalmes12 %></td>
       </tr>
     <% end %>
   </table>
