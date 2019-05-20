@@ -74,6 +74,12 @@ class GastosController < ApplicationController
     end
   end
 
+  def consulta_receita_despesa
+    if params[:ano] != nil
+      @ano = params[:ano]
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -83,7 +89,7 @@ class GastosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gasto_params
-      params.require(:gasto).permit(:dtgasto, :tipo_gasto_id, :valor)
+      params.require(:gasto).permit(:dtgasto, :tipo_gasto_id, :valor, :obs)
     end
 
 end

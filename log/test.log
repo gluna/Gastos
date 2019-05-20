@@ -1,0 +1,30 @@
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "gastos"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (104.9ms)[0m  [1m[35mCREATE TABLE "gastos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dtgasto" date, "tipo_gasto_id" integer, "valor" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "obs" varchar)[0m
+  [1m[35m (99.1ms)[0m  [1m[35mCREATE  INDEX "index_gastos_on_tipo_gasto_id" ON "gastos" ("tipo_gasto_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "receita"[0m
+  [1m[35m (112.0ms)[0m  [1m[35mCREATE TABLE "receita" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dtreceita" date, "tipo_receita_id" integer, "valor" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (110.0ms)[0m  [1m[35mCREATE  INDEX "index_receita_on_tipo_receita_id" ON "receita" ("tipo_receita_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "tipo_gastos"[0m
+  [1m[35m (99.2ms)[0m  [1m[35mCREATE TABLE "tipo_gastos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descricao" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "tipo_receita"[0m
+  [1m[35m (110.1ms)[0m  [1m[35mCREATE TABLE "tipo_receita" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descricao" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (110.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (73.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190407225313)[0m
+  [1m[35m (66.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180109153003),
+(20190403212623),
+(20180109152526),
+(20190407225103);
+
+[0m
+  [1m[35m (100.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-05-19 21:21:52.880646"], ["updated_at", "2019-05-19 21:21:52.880646"]]
+  [1m[35m (76.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

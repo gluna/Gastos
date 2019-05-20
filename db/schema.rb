@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109153003) do
+ActiveRecord::Schema.define(version: 20190407225313) do
 
   create_table "gastos", force: :cascade do |t|
     t.date "dtgasto"
@@ -18,10 +18,26 @@ ActiveRecord::Schema.define(version: 20180109153003) do
     t.decimal "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "obs"
     t.index ["tipo_gasto_id"], name: "index_gastos_on_tipo_gasto_id"
   end
 
+  create_table "receita", force: :cascade do |t|
+    t.date "dtreceita"
+    t.integer "tipo_receita_id"
+    t.decimal "valor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tipo_receita_id"], name: "index_receita_on_tipo_receita_id"
+  end
+
   create_table "tipo_gastos", force: :cascade do |t|
+    t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipo_receita", force: :cascade do |t|
     t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

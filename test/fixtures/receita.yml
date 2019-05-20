@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dtreceita: 2019-04-07
+  tipo_receita: one
+  valor: 
+
+two:
+  dtreceita: 2019-04-07
+  tipo_receita: two
+  valor: 

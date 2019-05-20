@@ -1,7 +1,7 @@
 <%= form_with(model: gasto, local: true) do |form| %>
   <% if gasto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(gasto.errors.count, "error") %> prohibited this gasto from being saved:</h2>
+      <!-- <h2><%= pluralize(gasto.errors.count, "error") %> prohibited this gasto from being saved:</h2> -->
 
       <ul>
       <% gasto.errors.full_messages.each do |message| %>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :dtgasto %>
-    <%= form.text_field :dtgasto, id: :gasto_dtgasto %>
+    <%= form.date_field :dtgasto, id: :gasto_dtgasto %>
   </div>
 
   <div class="field">
@@ -24,6 +24,11 @@
   <div class="field">
     <%= form.label :valor %>
     <%= form.text_field :valor, id: :gasto_valor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :obs %>
+    <%= form.text_field :obs, id: :gasto_obs %>
   </div>
 
   <div class="actions">

@@ -1,0 +1,71 @@
+<%= form_tag(controller: "gastos", action: "consulta_receita_despesa", method: "get") do %>
+<br>
+<%= select_tag('ano', options_for_select([["2018"],["2019"], ["2020"]]))%>
+<%= submit_tag("Consultar") %>
+
+<table>
+  <tr>
+    <th>Mês</th>
+    <th>Receita</th>
+    <th>Despesa</th>
+    <th>Total</th>
+  </tr>
+  <% for i in 1..12 %>
+    <tr>
+    <% case i %>
+      <% when 1 %>
+        <% @nmes = "01"%>
+        <% @mes = "Janeiro" %>
+      <% when 2 %>
+        <% @nmes = "02"%>
+        <% @mes = "Fevereiro" %>
+      <% when 3 %>
+        <% @nmes = "03"%>
+        <% @mes = "Março" %>
+      <% when 4 %>
+        <% @nmes = "04"%>
+        <% @mes = "Abril" %>
+      <% when 5 %>
+        <% @nmes = "05"%>
+        <% @mes = "Maio" %>
+      <% when 6 %>
+        <% @nmes = "06"%>
+        <% @mes = "Junho" %>
+      <% when 7 %>
+        <% @nmes = "07"%>
+        <% @mes = "Julho" %>
+      <% when 8 %>
+        <% @nmes = "08"%>
+        <% @mes = "Agosto" %>
+      <% when 9 %>
+        <% @nmes = "09"%>
+        <% @mes = "Setembro" %>
+      <% when 10 %>
+        <% @nmes = "10"%>
+        <% @mes = "Outubro" %>
+      <% when 11 %>
+        <% @nmes = "11"%>
+        <% @mes = "Novembro" %>
+      <% when 12 %>
+        <% @nmes = "12"%>
+        <% @mes = "Dezembro" %>
+    <% end %>
+      <td><%= @mes %></td>
+      <% @receita = Gasto.find_by_sql(['select sum(receita.valor) as valor from receita where strftime("%m", receita.dtreceita) = ? and strftime("%Y", receita.dtreceita) = ?', @nmes, @ano] ) %>
+      <% @receita.each do |r| %>
+        <% @rmes = r.valor %>
+        <td><%= @rmes %></td>
+      <% end %>
+
+      <% @gastos = Gasto.find_by_sql(['select sum(gastos.valor) as valor from gastos where strftime("%m", gastos.dtgasto) = ? and strftime("%Y", gastos.dtgasto) = ?', @nmes, @ano] ) %>
+      <% @gastos.each do |g| %>
+        <% @gmes = g.valor %>
+        <td><%= @gmes %></td>
+
+      <% end %>
+
+      <td><%= @rmes.to_f-@gmes.to_f %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>
