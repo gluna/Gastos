@@ -18,7 +18,7 @@
     <% @receita.each do |receita| %>
       <tr>
         <td><%= receita.dtreceita %></td>
-        <td><%= receita.tipo_receita.descricao %></td>
+        <td><%= receita.tipo_receitum.descricao %></td>
         <td><%= receita.valor %></td>
         <td><%= link_to 'Show', receita %></td>
         <td><%= link_to 'Edit', edit_receitum_path(receita) %></td>

@@ -2,6 +2,9 @@
 
 <h1>Tipo Receita</h1>
 
+<%= link_to 'New Tipo Receita', new_tipo_receitum_path %>
+ <br /><br />
+
 <table>
   <thead>
     <tr>
@@ -9,9 +12,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
-<%= link_to 'New Tipo Receita', new_tipo_receitum_path %>
-
   <tbody>
     <% @tipo_receita.each do |tipo_receita| %>
       <tr>
@@ -23,5 +23,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>

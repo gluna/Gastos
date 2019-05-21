@@ -1,0 +1,2 @@
+class TipoReceitum < ApplicationRecord
+end

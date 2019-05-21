@@ -1,2 +1,0 @@
-class TipoReceita < ApplicationRecord
-end
